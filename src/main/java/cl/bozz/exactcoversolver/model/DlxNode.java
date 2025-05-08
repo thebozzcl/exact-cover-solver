@@ -1,9 +1,11 @@
 package cl.bozz.exactcoversolver.model;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @RequiredArgsConstructor
 public class DlxNode {
     private DlxNode left = this;

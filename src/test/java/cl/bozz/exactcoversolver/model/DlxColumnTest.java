@@ -14,14 +14,16 @@ public class DlxColumnTest {
         final DlxColumn column = (DlxColumn) start.getRight().getRight();
 
         final String initialState = ExactCoverPrinter.printProblem(start);
-        final String finalState = String.join(System.lineSeparator(), "1,3", "A,1,3", "B,1", "C,3");
+        final String expectedState = String.join(System.lineSeparator(), "1,3", "A,1,3", "C,3");
 
         // Act & Assert 1 - cover
         column.cover();
-        assertEquals(finalState, ExactCoverPrinter.printProblem(start));
+        final String actualCoveredState = ExactCoverPrinter.printProblem(start);
+        assertEquals(expectedState, actualCoveredState);
 
         // Act && Assert 2 - uncover
         column.uncover();
-        assertEquals(initialState, ExactCoverPrinter.printProblem(start));
+        final String actualUncoveredState = ExactCoverPrinter.printProblem(start);
+        assertEquals(initialState, actualUncoveredState);
     }
 }

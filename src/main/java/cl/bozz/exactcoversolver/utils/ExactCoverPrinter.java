@@ -40,7 +40,7 @@ public class ExactCoverPrinter {
 
         sb.append(String.join(",", colLabels));
 
-        rowStrings.forEach((_, rowString) -> {
+        rowStrings.forEach((rowId, rowString) -> {
             sb.append(System.lineSeparator());
             sb.append(rowString);
         });

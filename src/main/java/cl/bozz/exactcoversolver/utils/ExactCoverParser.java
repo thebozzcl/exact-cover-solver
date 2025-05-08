@@ -34,7 +34,7 @@ public class ExactCoverParser {
         final DlxColumn[] columnByIndex = new DlxColumn[columnLabels.length];
         final DlxNode[] lastOfColumn = new DlxNode[columnLabels.length];
         for (int colIndex = 0; colIndex < columnLabels.length; colIndex++) {
-            final String colLabel = columnLabels[colIndex];
+            final String colLabel = columnLabels[colIndex].trim();
             final DlxColumn newColumn = new DlxColumn(HEADER_LABEL, colLabel);
             lastOfColumn[colIndex] = newColumn;
             columnByIndex[colIndex] = newColumn;
@@ -43,7 +43,7 @@ public class ExactCoverParser {
         }
 
         for (int rowIndex = 0; rowIndex < rowLabels.length; rowIndex++) {
-            final String rowLabel = rowLabels[rowIndex];
+            final String rowLabel = rowLabels[rowIndex].trim();
             DlxNode lastOfRow = null;
             for (int colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++) {
                 if (!matrix[rowIndex][colIndex]) {

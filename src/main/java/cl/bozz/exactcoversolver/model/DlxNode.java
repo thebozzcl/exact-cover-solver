@@ -64,4 +64,12 @@ public class DlxNode {
     public int hashCode() {
         return toString().hashCode();
     }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof DlxNode) {
+            return toString().equals(obj.toString());
+        }
+        return false;
+    }
 }

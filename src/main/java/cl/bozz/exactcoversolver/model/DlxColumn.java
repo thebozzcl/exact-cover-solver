@@ -6,7 +6,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = false)
 public class DlxColumn extends DlxNode {
     private final String columnId;
     private int size;
@@ -48,5 +47,18 @@ public class DlxColumn extends DlxNode {
                 getRowId(),
                 columnId
         );
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof DlxColumn) {
+            return toString().equals(obj.toString());
+        }
+        return false;
     }
 }
